@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="theme-color" content="#fff8f3">
+	<title>Rama Regmi's Birthday Countdown</title>
+	<meta name="description" content="A birthday countdown for Rama Regmi.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="icon" sizes="16x16" href="Gallery/fevicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="Gallery/fevicon/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Gallery/fevicon/apple-touch-icon.png">
+<link rel="icon" sizes="192x192" href="Gallery/fevicon/android-chrome-192x192.png">
+<link rel="icon" sizes="512x512" href="Gallery/fevicon/android-chrome-512x512.png">
+	<style>
+		:root{
+			--paper:#fff8f3;
+			--ink:#33242a;
+			--muted:#836d72;
+			--rose:#db5c79;
+			--coral:#f08b68;
+			--gold:#e5ae4d;
+			--line:rgba(83,47,57,.13);
+			--shadow:0 24px 70px rgba(104,52,66,.15);
+		}
+		*{box-sizing:border-box;margin:0;padding:0}
+		body{
+			min-height:100vh;
+			color:var(--ink);
+			font-family:'Manrope',sans-serif;
+			background:
+				radial-gradient(circle at 12% 10%,rgba(240,139,104,.2),transparent 28%),
+				radial-gradient(circle at 88% 18%,rgba(219,92,121,.17),transparent 27%),
+				linear-gradient(135deg,#fffaf5,var(--paper));
+			overflow-x:hidden;
+		}
+		body::before,body::after{
+			content:"";position:fixed;z-index:-1;border:1px solid rgba(219,92,121,.12);border-radius:50%;
+		}
+		body::before{width:360px;height:360px;left:-180px;bottom:-140px}
+		body::after{width:260px;height:260px;right:-120px;top:48%}
+		.wrap{width:min(100% - 32px,1040px);margin:auto}
+		.top{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
+		.brand{display:flex;align-items:center;gap:11px}
+		.brand-mark{display:block;width:42px;height:42px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,var(--rose),var(--coral));box-shadow:0 10px 22px rgba(219,92,121,.25)}
+		.brand-mark img{width:100%;height:100%;object-fit:cover}
+		.brand strong{display:block;font-size:.94rem}
+		.brand small{display:block;margin-top:2px;color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+		.back{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.78rem;font-weight:700;text-decoration:none;background:rgba(255,255,255,.48)}
+		.back:hover{color:var(--rose);border-color:rgba(219,92,121,.35)}
+		main{padding:44px 0 70px}
+		.hero{text-align:center;max-width:760px;margin:auto}
+		.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(219,92,121,.18);border-radius:999px;color:var(--rose);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.55)}
+		.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(229,174,77,.15)}
+		h1{margin-top:22px;font-family:'DM Serif Display',serif;font-size:clamp(3.7rem,11vw,7.5rem);font-weight:400;line-height:.9;letter-spacing:-.04em}
+		h1 em{display:block;color:var(--rose);font-style:italic}
+		.intro{max-width:470px;margin:24px auto 0;color:var(--muted);font-size:.96rem;line-height:1.8}
+		.date-card{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:12px 17px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.63);box-shadow:0 10px 30px rgba(104,52,66,.06)}
+		.date-card b{font-size:1.04rem;color:var(--ink)}
+		.date-card span{color:var(--muted);font-size:.76rem}
+		.countdown{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:900px;margin:52px auto 0}
+		.unit{position:relative;padding:24px 12px 21px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.7);box-shadow:var(--shadow);overflow:hidden}
+		.unit::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--rose),var(--coral),var(--gold))}
+		.unit strong{display:block;font-size:clamp(2.3rem,7vw,4.2rem);font-weight:800;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+		.unit span{display:block;margin-top:9px;color:var(--muted);font-size:.67rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+		.message{display:none;margin:32px auto 0;max-width:560px;padding:20px;border-radius:18px;color:#fff;background:linear-gradient(135deg,var(--rose),var(--coral));box-shadow:var(--shadow);font-size:1rem;font-weight:700}
+		.message.show{display:block;animation:pop .6s ease both}
+		.wish{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:34px auto 0;text-align:left}
+		.wish-card{padding:19px 20px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.46)}
+		.wish-card b{display:block;font-family:'DM Serif Display',serif;font-size:1.35rem;font-weight:400}
+		.wish-card p{margin-top:6px;color:var(--muted);font-size:.78rem;line-height:1.65}
+		footer{padding:0 0 28px;text-align:center;color:var(--muted);font-size:.72rem}
+		@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+		@media (max-width:600px){
+			.top{padding:18px 0}.back{font-size:0;width:40px;height:40px;justify-content:center}.back:first-letter{font-size:1rem}
+			main{padding-top:34px}.countdown{gap:8px;margin-top:40px}.unit{padding:20px 6px 17px;border-radius:16px}.unit strong{font-size:clamp(1.75rem,10vw,3rem)}.unit span{font-size:.57rem;letter-spacing:.08em}
+			.wish{grid-template-columns:1fr;margin-top:22px}.date-card{flex-wrap:wrap;justify-content:center}
+		}
+		@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+	</style>
+</head>
+<body>
+	<header class="wrap top">
+		<div class="brand">
+			<span class="brand-mark"><img src="Gallery/Hero.jpeg" alt="Rama Regmi"></span>
+			<span><strong>Rama Regmi</strong><small>Birthday countdown</small></span>
+		</div>
+		<a class="back" href="index.html" aria-label="Back to home">← <span>Back home</span></a>
+	</header>
+
+			<main class="wrap">
+		<section class="hero" aria-labelledby="title">
+			<div class="eyebrow"><i></i> A special day is coming</div>
+			<h1 id="title">Rama's <em>birthday</em></h1>
+			<p class="intro">Counting down to another beautiful year of dreams, laughter, good music and unforgettable memories.</p>
+				<div class="date-card"><b>2083 / 12 / 04 B.S.</b><span>Chaitra 4, 2083 · 18 March 2027</span></div>
+		</section>
+
+		<section class="countdown" aria-label="Birthday countdown">
+				<div class="unit"><strong id="months">00</strong><span>Months</span></div>
+				<div class="unit"><strong id="days">00</strong><span>Days</span></div>
+			<div class="unit"><strong id="hours">00</strong><span>Hours</span></div>
+			<div class="unit"><strong id="minutes">00</strong><span>Minutes</span></div>
+			<div class="unit"><strong id="seconds">00</strong><span>Seconds</span></div>
+		</section>
+
+		<p class="message" id="message">Happy Birthday, Rama! May this year bring you everything your heart is wishing for. 💐</p>
+
+		<section class="wish" aria-label="Birthday wishes">
+			<div class="wish-card"><b>New chapter</b><p>More courage, more calm, and more reasons to smile.</p></div>
+			<div class="wish-card"><b>Big dreams</b><p>May every small step take you closer to the life you imagine.</p></div>
+		</section>
+	</main>
+
+	<footer>Made with warm wishes for Rama Regmi · 2083 B.S.</footer>
+
+	<script>
+		const targetDate = new Date(2027, 2, 18, 0, 0, 0);
+		const parts = {
+			months: document.getElementById('months'),
+			days: document.getElementById('days'),
+			hours: document.getElementById('hours'),
+			minutes: document.getElementById('minutes'),
+			seconds: document.getElementById('seconds')
+		};
+		const message = document.getElementById('message');
+
+		function pad(value){
+			return String(value).padStart(2, '0');
+		}
+
+		function updateCountdown(){
+			const now = new Date();
+			const difference = targetDate.getTime() - now.getTime();
+			if(difference <= 0){
+				parts.months.textContent = '00';
+				parts.days.textContent = '00';
+				parts.hours.textContent = '00';
+				parts.minutes.textContent = '00';
+				parts.seconds.textContent = '00';
+				message.classList.add('show');
+				return;
+			}
+
+			let months = (targetDate.getFullYear() - now.getFullYear()) * 12 + targetDate.getMonth() - now.getMonth();
+			const monthAnchor = new Date(now);
+			monthAnchor.setMonth(monthAnchor.getMonth() + months);
+			if(monthAnchor > targetDate) months -= 1;
+
+			const remainderStart = new Date(now);
+			remainderStart.setMonth(remainderStart.getMonth() + months);
+			const totalSeconds = Math.floor((targetDate - remainderStart) / 1000);
+			const days = Math.floor(totalSeconds / 86400);
+			const hours = Math.floor((totalSeconds % 86400) / 3600);
+			const minutes = Math.floor((totalSeconds % 3600) / 60);
+			const seconds = totalSeconds % 60;
+
+			parts.months.textContent = pad(months);
+			parts.days.textContent = pad(days);
+			parts.hours.textContent = pad(hours);
+			parts.minutes.textContent = pad(minutes);
+			parts.seconds.textContent = pad(seconds);
+		}
+
+		updateCountdown();
+		setInterval(updateCountdown, 1000);
+	</script>
+</body>
+</html>
